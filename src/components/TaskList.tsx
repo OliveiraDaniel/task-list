@@ -1,21 +1,29 @@
-import TaskItem from './TaskItem';
-
-const taskMock = {
-    id: 0,
-    title: 'Teste 1',
-    description: 'Task de teste',
-    status: 'Pendente',
-}
-
+import TaskItem from './TaskItem'
+import { TaskListContainer } from '../styles/TaskList'
 
 const TaskList = () => {
-  return (
-    <div>
-      <ul>
-        <TaskItem key={0} task={taskMock} />
-      </ul>
-    </div>
-  );
-};
+  const taskMock = [
+    {
+      id: 1,
+      title: 'Teste 1',
+      description: 'Task de teste',
+      status: 'Pendente',
+    },
+    {
+      id: 2,
+      title: 'Teste 2',
+      description: 'Task de teste 2',
+      status: 'Em Progresso',
+    },
+  ]
 
-export default TaskList;
+  return (
+    <TaskListContainer>
+      {taskMock.map(task => (
+        <TaskItem key={task.id} task={task} />
+      ))}
+    </TaskListContainer>
+  )
+}
+
+export default TaskList
