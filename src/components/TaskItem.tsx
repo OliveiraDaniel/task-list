@@ -1,13 +1,14 @@
 import { Task } from './../types/TaskItem'
+import { TaskItemContainer, Title, Description } from '../styles/TaskItem'
 
 function TaskItem({ task }: { task: Task }) {
   return (
-    <li>
-      <h3>{task.title}</h3>
-      <p>{task.description}</p>
-      <span>{task.status}</span>
-    </li>
-  );
+    <TaskItemContainer>
+      <Title>{task.title}</Title>
+      <Description>{task.description}</Description>
+      <span>Status: {task.status}</span>
+    </TaskItemContainer>
+  )
 }
 
-export default TaskItem;
+export default TaskItem
