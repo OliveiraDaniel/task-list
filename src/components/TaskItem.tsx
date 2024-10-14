@@ -1,15 +1,23 @@
 import { Task } from './../types/TaskItem'
-import { TaskItemContainer, Title, Description } from '../styles/TaskItem'
-import { Button } from '../styles/TaskForm'
+import { TaskItemContainer, Title, Description, ContainerButtons } from '../styles/TaskItem'
+import IconButton from '@mui/material/IconButton'
+import EditIcon from '@mui/icons-material/Edit'
+import DeleteIcon from '@mui/icons-material/Delete'
 
 function TaskItem({ task }: { task: Task }) {
   return (
     <TaskItemContainer>
       <Title>{task.title}</Title>
-      <Description>{task.description}</Description>
-      <span>Status: {task.status}</span>
-      <Button>Editar</Button>
-      <Button>Deletar</Button>
+      <Description><strong>Descrição:</strong> {task.description}</Description>
+      <small><strong>Status: </strong>{task.status}</small>
+      <ContainerButtons>
+        <IconButton aria-label="edit">
+          <EditIcon />
+        </IconButton>
+        <IconButton aria-label="delete">
+          <DeleteIcon />
+        </IconButton>
+      </ContainerButtons>
     </TaskItemContainer>
   )
 }
