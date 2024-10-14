@@ -1,8 +1,42 @@
 import styled from 'styled-components'
 
 interface ButtonProps {
-  bgColor?: string;
+  bgColor?: string
 }
+
+// Estilos para o modal
+export const ModalOverlay = styled.div<{ isOpen: boolean }>`
+  display: ${props => (props.isOpen ? 'flex' : 'none')};
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`
+
+export const ModalContent = styled.div`
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+`
+
+export const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+`
 
 export const FormContainer = styled.form`
   display: flex;
@@ -13,7 +47,6 @@ export const FormContainer = styled.form`
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  width: 500px;
   justify-content: center;
   align-items: center;
 
@@ -53,12 +86,12 @@ export const Button = styled.button<ButtonProps>`
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  background-color: ${(props) => props.color};
+  background-color: ${props => props.color};
   color: white;
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-bottom: 20px;
+  margin: 20px;
   width: 200px;
 
   &:hover {
@@ -69,12 +102,20 @@ export const Button = styled.button<ButtonProps>`
     background-color: #ccc;
     cursor: not-allowed;
   }
+
+  @media (max-width: 480px) {
+    width: 300px;
+  }
 `
 
 export const ContainerButtons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 `
 
 export const ContainerFilter = styled.div`

@@ -6,20 +6,20 @@ interface OpenFormState {
 
 const initialState: OpenFormState = {
   open: false,
-};
+}
 
 const openFormSlice = createSlice({
   name: 'openForm',
   initialState,
   reducers: {
-    toggleForm: (state) => {
-      state.open = !state.open;
+    toggleForm: state => {
+      state.open = !state.open
     },
-    openForm: (state) => {
-      state.open = true;
+    openForm: state => {
+      state.open = true
     },
-    closeForm: (state) => {
-      state.open = false;
+    closeForm: state => {
+      state.open = false
     },
   },
 })
