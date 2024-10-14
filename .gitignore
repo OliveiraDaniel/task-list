@@ -7,10 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
 dist
 dist-ssr
+.vite
 *.local
+
+# TypeScript build files
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +27,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cache
+.eslintcache
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Lock files (optional)
+yarn.lock
+pnpm-lock.yaml

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Task } from '../types/TaskItem'
 import { FormContainer, Input, Textarea, Button } from '../styles/TaskForm'
+import { addTask } from './../services/taskServices'
 
 const TaskForm = ({ task }: { task?: Task }) => {
   const [title, setTitle] = useState(task?.title || '')
@@ -8,11 +9,17 @@ const TaskForm = ({ task }: { task?: Task }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log({ title, description })
+    const newTask = {
+      title: title,
+      description: description,
+      status: 'Pendente',
+    }
+    addTask(newTask)
   }
 
   return (
     <FormContainer onSubmit={handleSubmit}>
+      <h3>Adicione uma tarefa</h3>
       <Input
         value={title}
         onChange={e => setTitle(e.target.value)}
