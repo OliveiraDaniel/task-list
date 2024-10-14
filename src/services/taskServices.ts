@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Task } from '../types/TaskItem'
 
-const API_URL = 'http://localhost:3000/tasks'
+const API_URL = 'http://localhost:3001/tasks'
 
 export const getTasks = async (): Promise<Task[]> => {
   try {

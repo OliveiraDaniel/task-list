@@ -32,7 +32,7 @@ const TaskForm = ({ task }: { task?: Task }) => {
         placeholder="Descrição"
         required
       />
-      <Button type="submit">{task ? 'Editar' : 'Adicionar'}</Button>
+      <Button color="#0aa025" type="submit">{task ? 'Editar' : 'Adicionar'}</Button>
     </FormContainer>
   )
 }

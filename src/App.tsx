@@ -1,14 +1,19 @@
 import TaskList from './components/TaskList'
 import TaskForm from './components/TaskForm'
 import { MainContainer } from './styles/Container'
+import GlobalStyle from './styles/GlobalStyle'
+import Header from './components/Header'
 
 function App() {
   return (
-    <MainContainer>
-      <h1>Lista de Tarefas (To-Do List)</h1>
-      <TaskForm />
-      <TaskList />
-    </MainContainer>
+    <>
+      <GlobalStyle />
+      <Header />
+      <MainContainer>
+        <TaskList />
+        <TaskForm />
+      </MainContainer>
+    </>
   )
 }
 

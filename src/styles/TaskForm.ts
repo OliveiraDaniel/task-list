@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface ButtonProps {
+  bgColor?: string;
+}
+
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -34,7 +38,7 @@ export const Textarea = styled.textarea`
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1em;
-  resize: vertical; /* Permite redimensionar verticalmente */
+  resize: vertical;
 
   &:focus {
     border-color: #007bff;
@@ -42,16 +46,17 @@ export const Textarea = styled.textarea`
   }
 `
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff; /* Cor do botão */
+  background-color: ${(props) => props.color};
   color: white;
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s;
   margin-bottom: 20px;
+  width: 200px;
 
   &:hover {
     background-color: #0056b3;
@@ -61,4 +66,14 @@ export const Button = styled.button`
     background-color: #ccc;
     cursor: not-allowed;
   }
+`
+
+export const Select = styled.select`
+  margin: 1rem 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+`
+
+export const Option = styled.option`
+  font-size: 1rem;
 `
