@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -31,6 +31,6 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     background: none;
   }
-`;
+`
 
 export default GlobalStyle

@@ -9,13 +9,15 @@ export const TaskItemContainer = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   max-width: 230px;
+  min-height: 220px;
 
   @media (max-width: 768px) {
     flex: 1 1 calc(50% - 16px);
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 320px) {
     flex: 1 1 calc(100% - 16px);
   }
 `
@@ -31,8 +33,8 @@ export const Description = styled.p`
 `
 
 export const ContainerButtons = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 20px 0 0;
+  padding: 0 0 10px;
 `

@@ -23,6 +23,12 @@
       "title": "Tarefa de teste 4",
       "description": "Comprar café",
       "status": "Pendente"
+    },
+    {
+      "id": "dcd8",
+      "title": "Comprar frutas",
+      "description": "Banana, Maça, Uva e Pera",
+      "status": "Pendente"
     }
   ]
 }
