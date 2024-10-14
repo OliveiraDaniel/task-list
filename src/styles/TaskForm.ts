@@ -15,6 +15,7 @@ export const FormContainer = styled.form`
   background-color: #f9f9f9;
   width: 500px;
   justify-content: center;
+  align-items: center;
 
   @media (max-width: 480px) {
     padding: 12px;
@@ -26,10 +27,11 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1em;
+  width: 100%;
 
   &:focus {
-    border-color: #007bff; /* Cor ao focar no input */
-    outline: none; /* Remove o contorno padrão */
+    border-color: #007bff;
+    outline: none;
   }
 `
 
@@ -39,6 +41,7 @@ export const Textarea = styled.textarea`
   border-radius: 4px;
   font-size: 1em;
   resize: vertical;
+  width: 100%;
 
   &:focus {
     border-color: #007bff;
@@ -66,6 +69,19 @@ export const Button = styled.button<ButtonProps>`
     background-color: #ccc;
     cursor: not-allowed;
   }
+`
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const ContainerFilter = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `
 
 export const Select = styled.select`
