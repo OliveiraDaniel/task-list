@@ -51,13 +51,14 @@ export const Button = styled.button`
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-bottom: 20px;
 
   &:hover {
-    background-color: #0056b3; /* Cor ao passar o mouse */
+    background-color: #0056b3;
   }
 
   &:disabled {
-    background-color: #ccc; /* Cor quando desativado */
-    cursor: not-allowed; /* Cursor de não permitido */
+    background-color: #ccc;
+    cursor: not-allowed;
   }
 `

@@ -1,28 +1,41 @@
+import { useState } from 'react'
 import TaskItem from './TaskItem'
 import { TaskListContainer } from '../styles/TaskList'
+import { getTasks } from './../services/taskServices'
+import { Task } from '../types/TaskItem'
+import { Button } from '../styles/TaskForm'
 
 const TaskList = () => {
-  const taskMock = [
-    {
-      id: 1,
-      title: 'Teste 1',
-      description: 'Task de teste',
-      status: 'Pendente',
-    },
-    {
-      id: 2,
-      title: 'Teste 2',
-      description: 'Task de teste 2',
-      status: 'Em Progresso',
-    },
-  ]
+  const [tasks, setTasks] = useState<Task[]>([])
+  const [open, setOpen] = useState<boolean>(false)
+
+  const fetchTasks = async () => {
+    try {
+      const taskData = await getTasks()
+      setTasks(taskData)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const handleButtonClick = () => {
+    fetchTasks()
+    setOpen(!open)
+  }
 
   return (
-    <TaskListContainer>
-      {taskMock.map(task => (
-        <TaskItem key={task.id} task={task} />
-      ))}
-    </TaskListContainer>
+    <>
+      <Button onClick={handleButtonClick}>
+        {open ? 'Esconder ' : 'Listar '} Tarefas
+      </Button>
+      {open && (
+        <TaskListContainer>
+          {tasks.map(task => (
+            <TaskItem key={task.id} task={task} />
+          ))}
+        </TaskListContainer>
+      )}
+    </>
   )
 }
 
