@@ -7,12 +7,14 @@ import {
   ModalOverlay,
   ModalContent,
   CloseButton,
+  Select,
+  Option,
 } from '../styles/TaskForm'
 import { addTask, updateTask } from './../services/taskServices'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../app/store'
 import { toggleForm, closeForm } from '../features/openFormSlice'
-import { Select, MenuItem } from '@mui/material'
+import { setSnackbar } from '../features/snackbarSlice' // Importar o setSnackbar
 
 const TaskForm = () => {
   const dispatch = useDispatch()
@@ -38,7 +40,7 @@ const TaskForm = () => {
     }
   }, [isEditing, currentTask])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     const taskData = {
@@ -48,12 +50,20 @@ const TaskForm = () => {
     }
 
     if (isEditing && currentTask) {
-      updateTask(currentTask.id, taskData)
-      dispatch(toggleForm())
-      return
+      await updateTask(currentTask.id, taskData)
+      dispatch(
+        setSnackbar({ message: 'Tarefa editada com sucesso!', isOpen: true }),
+      )
+    } else {
+      await addTask(taskData)
+      dispatch(
+        setSnackbar({
+          message: 'Tarefa adicionada com sucesso!',
+          isOpen: true,
+        }),
+      )
     }
 
-    addTask(taskData)
     dispatch(toggleForm())
   }
 
@@ -75,28 +85,13 @@ const TaskForm = () => {
             placeholder="Descrição"
             required
           />
-
-          {isEditing ? (
-            <>
-              <label>
-                <strong>Status Atual: </strong>
-                <Select
-                  value={status}
-                  onChange={e => setStatus(e.target.value)}
-                  displayEmpty
-                >
-                  <MenuItem value="Pendente">Pendente</MenuItem>
-                  <MenuItem value="Em Progresso">Em Progresso</MenuItem>
-                  <MenuItem value="Concluído">Concluído</MenuItem>
-                </Select>
-              </label>
-            </>
-          ) : (
-            <span>
-              <strong>Status:</strong> {status}
-            </span>
+          {isEditing && (
+            <Select value={status} onChange={e => setStatus(e.target.value)}>
+              <Option value="Pendente">Pendente</Option>
+              <Option value="Em Progresso">Em Progresso</Option>
+              <Option value="Concluída">Concluída</Option>
+            </Select>
           )}
-
           <Button color="#0aa025" type="submit">
             {isEditing ? 'Editar' : 'Adicionar'}
           </Button>
