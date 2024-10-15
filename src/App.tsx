@@ -5,9 +5,12 @@ import TaskForm from './components/TaskForm'
 import { MainContainer } from './styles/Container'
 import GlobalStyle from './styles/GlobalStyle'
 import Header from './components/Header'
+import Snackbar from './utils/Snackbar'
 
 function App() {
   const open = useSelector((state: RootState) => state.openForm.open)
+  const { message, isOpen } = useSelector((state: RootState) => state.snackbar)
+
   return (
     <>
       <GlobalStyle />
@@ -16,6 +19,7 @@ function App() {
         <TaskList />
         {open && <TaskForm />}
       </MainContainer>
+      <Snackbar message={message} isOpen={isOpen} />
     </>
   )
 }

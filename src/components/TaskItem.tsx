@@ -11,12 +11,16 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import { useDispatch } from 'react-redux'
 import { editForm } from '../features/openFormSlice'
 import { deleteTask } from './../services/taskServices'
+import { setSnackbar } from '../features/snackbarSlice'
 
 function TaskItem({ task }: { task: Task }) {
   const dispatch = useDispatch()
 
-  const handleDelete = async () => {
-    await deleteTask(task.id)
+  const handleDelete = async (id: number) => {
+    await deleteTask(id)
+    dispatch(
+      setSnackbar({ message: 'Tarefa deletada com sucesso!', isOpen: true }),
+    )
   }
 
   return (
@@ -33,7 +37,7 @@ function TaskItem({ task }: { task: Task }) {
         <IconButton aria-label="edit" onClick={() => dispatch(editForm(task))}>
           <EditIcon />
         </IconButton>
-        <IconButton aria-label="delete" onClick={handleDelete}>
+        <IconButton aria-label="delete" onClick={() => handleDelete(task.id)}>
           <DeleteIcon />
         </IconButton>
       </ContainerButtons>
