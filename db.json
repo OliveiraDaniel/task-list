@@ -9,13 +9,31 @@
     {
       "title": "Tarefa 4",
       "description": "Tarefa 4444444444444",
-      "status": "Em Progresso",
+      "status": "Concluída",
       "id": "e1ab"
     },
     {
       "id": "cac9",
       "title": "Comprar ração",
       "description": "Comprar ração para porquinha da india",
+      "status": "Pendente"
+    },
+    {
+      "title": "Tarefa 5",
+      "description": "Testando tarefa Final",
+      "status": "Em Progresso",
+      "id": "452a"
+    },
+    {
+      "id": "ad44",
+      "title": "Comprar Café",
+      "description": "Acabou o café, ir ao mercado",
+      "status": "Pendente"
+    },
+    {
+      "id": "6e6f",
+      "title": "Comprar frutas",
+      "description": "Banana, maçã, pera e abacate.",
       "status": "Pendente"
     }
   ]
