@@ -4,7 +4,6 @@ interface ButtonProps {
   bgColor?: string
 }
 
-// Estilos para o modal
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
   display: ${props => (props.isOpen ? 'flex' : 'none')};
   position: fixed;

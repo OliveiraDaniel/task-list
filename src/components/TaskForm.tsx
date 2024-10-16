@@ -14,7 +14,7 @@ import { addTask, updateTask } from './../services/taskServices'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../app/store'
 import { toggleForm, closeForm } from '../features/openFormSlice'
-import { setSnackbar } from '../features/snackbarSlice' // Importar o setSnackbar
+import { setSnackbar } from '../features/snackbarSlice'
 
 const TaskForm = () => {
   const dispatch = useDispatch()

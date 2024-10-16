@@ -28,7 +28,7 @@ function TaskItem({
     dispatch(
       setSnackbar({ message: 'Tarefa deletada com sucesso!', isOpen: true }),
     )
-    onUpdateList() // Atualiza a lista após deletar
+    onUpdateList()
   }
 
   const handleComplete = async (task: Task) => {
@@ -37,7 +37,7 @@ function TaskItem({
     dispatch(
       setSnackbar({ message: 'Tarefa concluída com sucesso!', isOpen: true }),
     )
-    onUpdateList() // Atualiza a lista após concluir
+    onUpdateList()
   }
 
   return (

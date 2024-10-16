@@ -26,7 +26,7 @@ const TaskList = () => {
   const handleShowList = () => {
     if (!list) {
       fetchTasks()
-      setList(true) // Mover para cá para garantir que a lista apareça
+      setList(true)
     }
   }
 
@@ -39,9 +39,8 @@ const TaskList = () => {
     setFilter(e.target.value)
   }
 
-  // Função chamada ao deletar ou editar uma tarefa
   const updateList = () => {
-    fetchTasks() // Atualiza a lista de tarefas
+    fetchTasks()
   }
 
   const filteredTasks = tasks.filter(task => {
@@ -68,11 +67,7 @@ const TaskList = () => {
           <TaskFilter filter={filter} onChange={handleFilterChange} />
           {filteredTasks.length ? (
             filteredTasks.map(task => (
-              <TaskItem
-                key={task.id}
-                task={task}
-                onUpdateList={updateList} // Passa a função para TaskItem
-              />
+              <TaskItem key={task.id} task={task} onUpdateList={updateList} />
             ))
           ) : (
             <p style={{ width: 'height: 50px' }}>Nenhuma tarefa encontrada.</p>
