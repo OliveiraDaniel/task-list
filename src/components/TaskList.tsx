@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TaskItem from './TaskItem'
 import { TaskListContainer } from '../styles/TaskList'
 import { getTasks } from './../services/taskServices'
@@ -18,7 +18,6 @@ const TaskList = () => {
     try {
       const taskData = await getTasks()
       setTasks(taskData)
-      setList(!list)
     } catch (error) {
       console.error(error)
     }
@@ -27,6 +26,7 @@ const TaskList = () => {
   const handleShowList = () => {
     if (!list) {
       fetchTasks()
+      setList(true) // Mover para cá para garantir que a lista apareça
     }
   }
 
@@ -39,15 +39,24 @@ const TaskList = () => {
     setFilter(e.target.value)
   }
 
+  // Função chamada ao deletar ou editar uma tarefa
+  const updateList = () => {
+    fetchTasks() // Atualiza a lista de tarefas
+  }
+
   const filteredTasks = tasks.filter(task => {
     if (!filter) return true
     return task.status === filter
   })
 
+  useEffect(() => {
+    fetchTasks()
+  }, [])
+
   return (
     <>
       <ContainerButtons>
-        <Button color="#0aa025" onClick={() => handleShowForm()}>
+        <Button color="#0aa025" onClick={handleShowForm}>
           Adicionar Tarefa
         </Button>
         <Button color="#007bff" onClick={handleShowList}>
@@ -58,7 +67,13 @@ const TaskList = () => {
         <TaskListContainer>
           <TaskFilter filter={filter} onChange={handleFilterChange} />
           {filteredTasks.length ? (
-            filteredTasks.map(task => <TaskItem key={task.id} task={task} />)
+            filteredTasks.map(task => (
+              <TaskItem
+                key={task.id}
+                task={task}
+                onUpdateList={updateList} // Passa a função para TaskItem
+              />
+            ))
           ) : (
             <p style={{ width: 'height: 50px' }}>Nenhuma tarefa encontrada.</p>
           )}
