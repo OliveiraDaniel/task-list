@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import openFormReducer from '../features/openFormSlice'
+import snackbarReducer from '../features/snackbarSlice'
 
 export const store = configureStore({
   reducer: {
     openForm: openFormReducer,
+    snackbar: snackbarReducer,
   },
 })
 
