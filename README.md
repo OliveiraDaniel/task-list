@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Task List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um aplicativo de gerenciamento de tarefas construído com React, Redux e TypeScript.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Adicionar, editar e deletar tarefas.
+- Interface intuitiva com formulários e modais.
+- Validação de formulários com mensagens de sucesso e erro.
+- Gerenciamento de estado global usando Redux.
 
-## Expanding the ESLint configuration
+![Adicionando tarefa](src/assets/form.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Lista de tarefas](src/assets/list.png)
 
-- Configure the top-level `parserOptions` property like this:
+![Lista mobile](src/assets/mobile.png)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Tecnologias Utilizadas
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **React**
+- **Redux Toolkit**
+- **TypeScript**
+- **Styled Components**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+## Instalação
+
+Para executar o projeto localmente, siga os passos abaixo:
+
+1. Clone o repositório:
+   git clone https://github.com/OliveiraDaniel/task-list.git
+
+2. Navegue até o diretório do projeto:
+
+   cd task-list
+
+3. Instale as dependencias:
+
+   npm install
+
+
+## Executando o projeto
+
+  - Front: npm start
+  - Server: npm run server
+  - Testes: npm test
+
