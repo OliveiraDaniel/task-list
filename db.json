@@ -1,31 +1,19 @@
 {
   "tasks": [
     {
-      "title": "Comprar frutas",
-      "description": "Banana, Maça, Uva, pera, mamao e laranja",
-      "status": "Em Progresso",
-      "id": "dcd8"
-    },
-    {
       "title": "Knotfest 2024",
       "description": "Show Knotfest Domingo as 17:00",
       "status": "Pendente",
       "id": "2c59"
     },
     {
-      "title": "teteeeeeter",
-      "description": "opaaaaaaaaaaa",
-      "status": "Em Progresso",
-      "id": "9a97"
-    },
-    {
       "title": "DAniel",
       "description": "daniel dnaneislss",
-      "status": "Pendente",
+      "status": "Concluída",
       "id": "20b0"
     },
     {
-      "title": "dadntesf",
+      "title": "Quarta feira",
       "description": "fsddddddddddddddd",
       "status": "Em Progresso",
       "id": "c470"
@@ -34,12 +22,6 @@
       "id": "2d34",
       "title": "dsdsdsdsds",
       "description": "sdsdsds",
-      "status": "Pendente"
-    },
-    {
-      "id": "192b",
-      "title": "TEstando snackbar",
-      "description": "snackbar funciona pelo amor de deus",
       "status": "Pendente"
     }
   ]
