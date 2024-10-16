@@ -55,18 +55,14 @@ const TaskList = () => {
         </Button>
       </ContainerButtons>
       {list && (
-        <>
+        <TaskListContainer>
           <TaskFilter filter={filter} onChange={handleFilterChange} />
-          <TaskListContainer>
-            {filteredTasks.length ? (
-              filteredTasks.map(task => <TaskItem key={task.id} task={task} />)
-            ) : (
-              <p style={{ width: 'height: 50px' }}>
-                Nenhuma tarefa encontrada.
-              </p>
-            )}
-          </TaskListContainer>
-        </>
+          {filteredTasks.length ? (
+            filteredTasks.map(task => <TaskItem key={task.id} task={task} />)
+          ) : (
+            <p style={{ width: 'height: 50px' }}>Nenhuma tarefa encontrada.</p>
+          )}
+        </TaskListContainer>
       )}
     </>
   )

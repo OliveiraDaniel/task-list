@@ -8,7 +8,7 @@ interface TaskFilterProps {
 export const TaskFilter = ({ filter, onChange }: TaskFilterProps) => {
   return (
     <ContainerFilter>
-      <span>Filtros:</span>
+      <span style={{ marginRight: '10px' }}>Filtros:</span>
       <Select value={filter} onChange={onChange}>
         <Option value="">Todas</Option>
         <Option value="Pendente">Pendente</Option>

@@ -121,8 +121,10 @@ export const ContainerButtons = styled.div`
 export const ContainerFilter = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  padding: 0 20px;
 `
 
 export const Select = styled.select`
