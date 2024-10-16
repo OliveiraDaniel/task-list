@@ -14,7 +14,13 @@ import { editForm } from '../features/openFormSlice'
 import { deleteTask, updateTask } from './../services/taskServices'
 import { setSnackbar } from '../features/snackbarSlice'
 
-function TaskItem({ task }: { task: Task }) {
+function TaskItem({
+  task,
+  onUpdateList,
+}: {
+  task: Task
+  onUpdateList: () => void
+}) {
   const dispatch = useDispatch()
 
   const handleDelete = async (id: number) => {
@@ -22,14 +28,16 @@ function TaskItem({ task }: { task: Task }) {
     dispatch(
       setSnackbar({ message: 'Tarefa deletada com sucesso!', isOpen: true }),
     )
+    onUpdateList()
   }
 
   const handleComplete = async (task: Task) => {
     const updatedTask = { ...task, status: 'Concluída' }
     await updateTask(task.id, updatedTask)
     dispatch(
-      setSnackbar({ message: 'Tarefa concluida com sucesso', isOpen: true }),
+      setSnackbar({ message: 'Tarefa concluída com sucesso!', isOpen: true }),
     )
+    onUpdateList()
   }
 
   return (
