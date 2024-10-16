@@ -9,6 +9,12 @@ Um aplicativo de gerenciamento de tarefas construído com React, Redux e TypeScr
 - Validação de formulários com mensagens de sucesso e erro.
 - Gerenciamento de estado global usando Redux.
 
+![Adicionando tarefa](src/assets/form.png)
+
+![Lista de tarefas](src/assets/list.png)
+
+![Lista mobile](src/assets/mobile.png)
+
 ## Tecnologias Utilizadas
 
 - **React**
