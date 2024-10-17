@@ -42,7 +42,7 @@ Para executar o projeto localmente, siga os passos abaixo:
 
 ## Executando o projeto
 
-  - Front: npm start
+  - Front: npm run dev
   - Server: npm run server
   - Testes: npm test
 
